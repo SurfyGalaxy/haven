@@ -82,12 +82,22 @@ var first = true
 func end_animation():
 	var cheese_gain
 	if State.taxevasion:
-		pass
+		if RandomNumberGenerator.new().randf() < State.Kevinchance:
+			cheese_gain = -(round(height * State.earnings))
+			State.Kevinchance = 0.05
+		else:
+			cheese_gain = round(height * State.earnings) * 2
+			State.Kevinchance += 0.05
 	else:
 		cheese_gain = round(height * State.earnings) * 0.75 # 25% tax for Kevin
 	if first:
 		State.cheese += cheese_gain
 		first = false
-	homeable = true 
+	homeable = true
+	if State.taxevasion:
+		if cheese_gain >= 0:
+			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got away with tax evasion, gaining " + str(cheese_gain) + " cheese slices!\n\n\n\nPress space again to return to the menu"
+		else:
+			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got caught evading tax by Kevin, paying " + str(cheese_gain) + " cheese slices in fines.\n\n\n\nPress space again to return to the menu"
 	$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\nPress space again to return to the menu"
 	get_tree().create_tween().tween_property($"end label", "modulate:a", 1, 1.0)
