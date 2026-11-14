@@ -5,6 +5,11 @@
 
 [node name="Node2D" type="Node2D" unique_id=1230211671]
 
+[node name="Background" type="ColorRect" parent="." unique_id=1773203966]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.2901961, 0.5176471, 1, 1)
+
 [node name="player" type="Sprite2D" parent="." unique_id=373040699]
 position = Vector2(566, 200)
 scale = Vector2(0.102564104, 0.14534885)
@@ -12,7 +17,7 @@ texture = ExtResource("1_80nbo")
 script = ExtResource("2_e2o6t")
 
 [node name="Timer" type="Timer" parent="player" unique_id=669020479]
-wait_time = 0.001
+wait_time = 4.510000000000001
 one_shot = true
 autostart = true
 
