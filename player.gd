@@ -33,17 +33,18 @@ var colourheight = 0
 func _process(_delta: float) -> void:
 	if timeout:
 		if ascending:
-			if flyspeed < 0:
+			if height < 0:
 				distance_done += 1
-				flyspeed -= gravity 
+				height -= 1
 			if position.y >= 200:
 				var temp = Vector2(x_pos, position.y - (448/(60 /(1 * float(speed)))))
 				if temp.y + position.y > 200:
 					position.y = 200
 				else:
-					position.y += temp
-			# Colour
-			colourheight = distance_done / 100
+					position.y += temp.y                                          
+			else:
+				colourheight = distance_done / 100
+				print(distance_done)
 		
 		elif tick < (screensize - startheight):
 			tick += 448/60
