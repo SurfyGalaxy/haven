@@ -18,10 +18,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _pressed() -> void:
-	if State.cheese >= round((40 + 10*State.earnings**2.5)):
+	if State.cheese >= (round((40 + 10*State.earnings**2.5))):
 		State.cheese += -round((40 + 10*State.earnings**2.5))
 		State.earnings += 1
-		State.cheese = round(State.cheese)
-		State.earnings = round(State.earnings)
+		State.cheese = int(round(State.cheese))
+		State.earnings = int(round(State.earnings))
 	pass
 pass

@@ -55,6 +55,10 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oshqu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmixe"]
+
 [resource]
 default_font_size = 50
 Button/constants/outline_size = 10
@@ -63,3 +67,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_j2q5q")
 Button/styles/normal = SubResource("StyleBoxFlat_amlv4")
 Button/styles/pressed = SubResource("StyleBoxFlat_i7eh4")
 Label/styles/normal = SubResource("StyleBoxFlat_78ylj")
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/styles/focus = SubResource("StyleBoxEmpty_oshqu")
+TooltipLabel/styles/normal = SubResource("StyleBoxEmpty_dmixe")
