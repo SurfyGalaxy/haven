@@ -9,5 +9,5 @@ func _ready() -> void:
 func _process(delta: float) -> void: #cheater...
 	text = "Cheese: "+str(State.cheese)
 	if Input.is_key_pressed(KEY_0):
-		State.cheese += 4210
+		State.cheese += 50*State.earnings
 	pass

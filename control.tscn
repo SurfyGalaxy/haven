@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://8inyks0qagvw" path="res://label.gd" id="1_0fbet"]
 [ext_resource type="Theme" uid="uid://b0ngfsayg67d0" path="res://new_theme.tres" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://vnhopeeqegao" path="res://start_button.gd" id="3_qtu10"]
-[ext_resource type="Script" uid="uid://dvcy4h3ei0w65" path="res://bounce_upgrade.gd" id="4_ee4bf"]
+[ext_resource type="Script" uid="uid://ckvamcyo61omv" path="res://bouncereal_upgrade.gd" id="4_kbped"]
+[ext_resource type="Script" uid="uid://cth5ajttwjeog" path="res://cheesereal_upgrade.gd" id="5_fj5cn"]
 
 [node name="Control" type="Control" unique_id=333993517]
 layout_mode = 3
@@ -55,4 +56,23 @@ theme = ExtResource("1_62e2m")
 theme_type_variation = &"shop"
 theme_override_font_sizes/font_size = 32
 text = "bounce cost"
-script = ExtResource("4_ee4bf")
+script = ExtResource("4_kbped")
+
+[node name="cheese upgrade" type="Button" parent="." unique_id=1117573538]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -339.0
+offset_top = -117.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_62e2m")
+theme_type_variation = &"shop"
+theme_override_font_sizes/font_size = 32
+text = "cheese cheese cost"
+script = ExtResource("5_fj5cn")
