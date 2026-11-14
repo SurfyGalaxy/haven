@@ -6,6 +6,7 @@ var speed = 1
 var height = 0
 var distance_done = 0 
 var flyspeed = 0
+var homeable = false
 
 const screensize = 648
 const startheight = 200
@@ -24,6 +25,9 @@ var squishiness = State.squishiness
 @export
 var gravity = 1
 
+func _ready() -> void:
+	$"end label".modulate.a = 0
+
 func _on_timer_timeout() -> void:
 	timeout = true
 	height = speed * State.squishiness
@@ -33,6 +37,8 @@ func _input(event: InputEvent) -> void:
 	if not timeout and event.is_action_pressed("space"):
 		print("AAAA")
 		speed += 1 
+	elif homeable and event.is_action_pressed("space"):
+		get_tree().change_scene_to_file("res://control.tscn")
 
 var tick = 0
 var colourheight = 0
@@ -78,33 +84,14 @@ func _process(_delta: float) -> void:
 			if position.y > screensize:
 				ascending = true
 		elif not gayming:
-			end_animation()
+			end_animation()           
 
+var first = true
 func end_animation():
-	var cheese_gain = height * State.earnings
-	$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!"
-		
-		#if ascending:
-			#if height >= distance_done:
-				#distance_done += 1
-			#if position.y >= 200:
-				#var temp = Vector2(x_pos, position.y - (448/(60 /(1 * float(speed)))))
-				#if temp.y + position.y > 200:
-					#position.y = 200
-				#else:
-					#position.y += temp.y
-				#colourheight = distance_done / 100
-				#print(distance_done)
-		#
-		#elif tick < (screensize - startheight):
-			#tick += 448/60
-			#print(process_curve(flyspeed, tick))
-			#position = Vector2(x_pos, position.y + (448/60.0) )
-		#
-		#
-		#elif not ascending:
-			#ascending = true                                       
-		#print(str(flyspeed) + "speed, tick: " + str(tick))
-#
-#func process_curve(target:float, x:float) -> float:
-	#return (target / (screensize - startheight) ** 2.23) * x ** 2.23
+	var cheese_gain = round(height * State.earnings)
+	if first:
+		State.cheese += cheese_gain
+		first = false
+	homeable = true 
+	$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\nPress space again to return to the menu"
+	get_tree().create_tween().tween_property($"end label", "modulate:a", 1, 1.0)
