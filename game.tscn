@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://crwqxmtc4hsks"]
 
-[ext_resource type="Texture2D" uid="uid://cfwektituimpi" path="res://players/image(4).png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dkge7grpefrkn" path="res://player.gd" id="2_e2o6t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_80nbo"]
+load_path = "res://.godot/imported/image(4).png-8e751ad2a6f6d75852dc96295f88635d.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=1230211671]
 
@@ -13,7 +15,7 @@ color = Color(0.2901961, 0.5176471, 1, 1)
 [node name="player" type="Sprite2D" parent="." unique_id=373040699]
 position = Vector2(566, 200)
 scale = Vector2(0.102564104, 0.14534885)
-texture = ExtResource("1_80nbo")
+texture = SubResource("CompressedTexture2D_80nbo")
 script = ExtResource("2_e2o6t")
 
 [node name="Timer" type="Timer" parent="player" unique_id=669020479]
