@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 	if not timeout and event.is_action_pressed("space"):
 		speed += 1 
 	elif homeable and event.is_action_pressed("space"):
+		State.taxevasion = false    
 		get_tree().change_scene_to_file("res://control.tscn")
 
 var tick = 0
@@ -80,26 +81,30 @@ func _process(_delta: float) -> void:
 
 var first = true
 var caught = RandomNumberGenerator.new().randf() < State.Kevinchance
+var cheese_gain
 func end_animation():
-	var cheese_gain
-	if State.taxevasion:
-		if caught:
-			cheese_gain = -(round(height * State.earnings))
-			State.Kevinchance = 0.05
-		else:
-			cheese_gain = round(height * State.earnings) * 2
-			State.Kevinchance += 0.05
-	else:
-		cheese_gain = round(height * State.earnings) * 0.75 # 25% tax for Kevin
 	if first:
+		if State.taxevasion:
+			print("A")
+			if caught:
+				cheese_gain = -(round(height * State.earnings)) * 1.5
+			else:
+				cheese_gain = round(height * State.earnings)
+				if State.Kevinchance < 0.95:
+					State.Kevinchance += 0.06                       
+			State.taxevasion = true
+		else:
+			cheese_gain = round(height * State.earnings) * 0.75
+		if State.Kevinchance > 0.05:
+			State.Kevinchance -= 0.01
+		first = false                                                               
 		State.cheese += cheese_gain
-		first = false
-	homeable = true
 	if State.taxevasion:
 		if cheese_gain >= 0:
 			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got away with tax evasion, gaining " + str(cheese_gain) + " cheese slices!\n\n\n\n\nPress space again to return to the menu"
 		else:
 			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got caught evading tax by Kevin, paying " + str(cheese_gain) + " cheese slices in fines.\n\n\n\n\nPress space again to return to the menu"
 	else:
-		$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\n\nPress space again to return to the menu"
+		$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\n\nPress space again to return to the menu"  
+	homeable = true
 	get_tree().create_tween().tween_property($"end label", "modulate:a", 1, 1.0)
