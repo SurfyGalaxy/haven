@@ -7,8 +7,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = "bounce: " + str(State.upgrades) + " cost: " + str(50 + State.upgrades*5)
-	if State.cheese > (50 + State.upgrades*5):
+	text = "bounce: " + str(State.squishiness) + " cost: " + str(-50 + State.squishiness*100)
+	if State.cheese > (-50 + State.squishiness*100):
 		add_theme_color_override("font_hover_color",Color(0,255,0))
 		add_theme_color_override("font_pressed_color",Color(0,255,0))
 	else:
@@ -18,8 +18,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _pressed() -> void:
-	if State.cheese > (50 + State.upgrades*5):
-		State.cheese += -(50 + State.upgrades*5)
-		State.upgrades += 1
+	if State.cheese > (-50 + State.squishiness*100):
+		State.cheese += -(-50 + State.squishiness*100)
+		State.squishiness += 0.05
 	pass
 pass
