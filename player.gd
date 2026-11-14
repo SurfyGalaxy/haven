@@ -2,7 +2,7 @@ extends Sprite2D
 
 var timeout = false
 var ascending = false
-var speed = 10000
+var speed = 1
 var height = 0
 var distance_done = 0 
 var flyspeed = 0
@@ -19,8 +19,8 @@ const catchrate = 100
 @export
 var burstspeed = 1.1
 
-@export
-var squishiness = 1 # Multiplier    
+var squishiness = State.squishiness
+
 @export
 var gravity = 1
 
@@ -31,7 +31,8 @@ func _on_timer_timeout() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not timeout and event.is_action_pressed("space"):
-		speed += 1  
+		print("AAAA")
+		speed += 1 
 
 var tick = 0
 var colourheight = 0
@@ -76,6 +77,12 @@ func _process(_delta: float) -> void:
 			print(position.y)
 			if position.y > screensize:
 				ascending = true
+		elif not gayming:
+			end_animation()
+
+func end_animation():
+	var cheese_gain = height * State.earnings
+	$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!"
 		
 		#if ascending:
 			#if height >= distance_done:

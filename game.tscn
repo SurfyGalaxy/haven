@@ -23,4 +23,14 @@ wait_time = 4.510000000000001
 one_shot = true
 autostart = true
 
+[node name="end label" type="Label" parent="player" unique_id=1550720617]
+offset_left = -5469.7505
+offset_top = -275.1999
+offset_right = 1774.4995
+offset_bottom = 819.8001
+rotation = 6.017895
+theme_override_font_sizes/font_size = 400
+text = "AAAAAAHUHAUHU
+YYUYSUDHUIPDVH"
+
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
