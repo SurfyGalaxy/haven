@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8inyks0qagvw" path="res://label.gd" id="1_0fbet"]
 [ext_resource type="Theme" uid="uid://b0ngfsayg67d0" path="res://new_theme.tres" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://vnhopeeqegao" path="res://start_button.gd" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://dvcy4h3ei0w65" path="res://bounce_upgrade.gd" id="4_ee4bf"]
 
 [node name="Control" type="Control" unique_id=333993517]
 layout_mode = 3
@@ -13,16 +14,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_62e2m")
 
-[node name="Label" type="Label" parent="." unique_id=1404613017]
-visible = false
+[node name="cheese" type="Label" parent="." unique_id=1404613017]
 layout_mode = 0
 offset_left = 15.999992
-offset_top = 80.0
+offset_top = 16.0
 offset_right = 170.0
-offset_bottom = 149.0
-rotation = -0.2617994
+offset_bottom = 85.0
 theme = ExtResource("1_62e2m")
-text = "empty"
+text = "cheese number"
 script = ExtResource("1_0fbet")
 
 [node name="Start Button" type="Button" parent="." unique_id=1571188496]
@@ -38,7 +37,22 @@ offset_right = 86.5
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "begin"
+theme = ExtResource("1_62e2m")
+text = "begin run"
 script = ExtResource("3_qtu10")
 
-[connection signal="pressed" from="Start Button" to="Label" method="_on_start_button_pressed"]
+[node name="bounce upgrade" type="Button" parent="." unique_id=156494707]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -117.0
+offset_right = 339.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme = ExtResource("1_62e2m")
+theme_type_variation = &"shop"
+theme_override_font_sizes/font_size = 32
+text = "bounce cost"
+script = ExtResource("4_ee4bf")
