@@ -20,8 +20,10 @@ State="*uid://gscmtcam24e3"
 
 [display]
 
+window/size/transparent=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
 
 [input]
 
