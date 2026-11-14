@@ -35,7 +35,6 @@ func _on_timer_timeout() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not timeout and event.is_action_pressed("space"):
-		print("AAAA")
 		speed += 1 
 	elif homeable and event.is_action_pressed("space"):
 		get_tree().change_scene_to_file("res://control.tscn")
@@ -51,9 +50,6 @@ var flag = false
 func _process(_delta: float) -> void:
 	if timeout:
 		if ascending and gayming:
-
-			print("A") 
-			print(position.y)
 			if position.y - speed <= 200 and speed > 0:
 				speed = float(speed) / burstspeed
 			if position.y < 200 and speed <= 1:
@@ -62,7 +58,6 @@ func _process(_delta: float) -> void:
 			position.y -= speed
 			doneheight + 1
 			var screen = $"../Background"
-			print(screen.color.r)
 			if screen.color.r > 0:
 				screen.color.r -= 1 * skycolourchangefactor
 			if screen.color.b > 0:
@@ -72,15 +67,12 @@ func _process(_delta: float) -> void:
 			if snapped(position.y, 10) == 200:
 				if flag:
 					gayming = false
-					print("DOEN")
 				else:
 					flag = true
 			else:
 				flag = false
-			  
 		elif not ascending:
-			position.y += speed 
-			print(position.y)
+			position.y += speed
 			if position.y > screensize:
 				ascending = true
 		elif not gayming:
@@ -88,7 +80,11 @@ func _process(_delta: float) -> void:
 
 var first = true
 func end_animation():
-	var cheese_gain = round(height * State.earnings)
+	var cheese_gain
+	if State.taxevasion:
+		pass
+	else:
+		cheese_gain = round(height * State.earnings) * 0.75 # 25% tax for Kevin
 	if first:
 		State.cheese += cheese_gain
 		first = false
