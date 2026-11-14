@@ -79,10 +79,11 @@ func _process(_delta: float) -> void:
 			end_animation()           
 
 var first = true
+var caught = RandomNumberGenerator.new().randf() < State.Kevinchance
 func end_animation():
 	var cheese_gain
 	if State.taxevasion:
-		if RandomNumberGenerator.new().randf() < State.Kevinchance:
+		if caught:
 			cheese_gain = -(round(height * State.earnings))
 			State.Kevinchance = 0.05
 		else:
@@ -96,8 +97,9 @@ func end_animation():
 	homeable = true
 	if State.taxevasion:
 		if cheese_gain >= 0:
-			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got away with tax evasion, gaining " + str(cheese_gain) + " cheese slices!\n\n\n\nPress space again to return to the menu"
+			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got away with tax evasion, gaining " + str(cheese_gain) + " cheese slices!\n\n\n\n\nPress space again to return to the menu"
 		else:
-			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got caught evading tax by Kevin, paying " + str(cheese_gain) + " cheese slices in fines.\n\n\n\nPress space again to return to the menu"
-	$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\nPress space again to return to the menu"
+			$"end label".text = "Daven flew " + str(height) + " metres!\nYou got caught evading tax by Kevin, paying " + str(cheese_gain) + " cheese slices in fines.\n\n\n\n\nPress space again to return to the menu"
+	else:
+		$"end label".text = "Daven flew " + str(height) + " metres!\nYou gained " + str(cheese_gain) + " cheese slices!\n\n\n\n\nPress space again to return to the menu"
 	get_tree().create_tween().tween_property($"end label", "modulate:a", 1, 1.0)

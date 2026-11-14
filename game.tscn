@@ -24,12 +24,12 @@ one_shot = true
 autostart = true
 
 [node name="end label" type="Label" parent="player" unique_id=1550720617]
-offset_left = -5469.7505
-offset_top = -275.1999
-offset_right = 1774.4995
-offset_bottom = 819.8001
+offset_left = -5499.0
+offset_top = 103.200195
+offset_right = 1745.25
+offset_bottom = 1198.2002
 rotation = 6.017895
-theme_override_font_sizes/font_size = 400
+theme_override_font_sizes/font_size = 300
 text = "AAAAAAHUHAUHU
 YYUYSUDHUIPDVH"
 
