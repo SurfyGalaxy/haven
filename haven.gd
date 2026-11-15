@@ -1,8 +1,9 @@
 extends Button
 
-
+var random = RandomNumberGenerator.new()
 
 func _on_pressed() -> void:
+	$"../Error".text = ""
 	var input = $"../LineEdit".text
 	var a = RegEx.new()
 	a.compile("([+-]?(?=.\\d|\\d)(?:\\d+)?(?:\\.?\\d*))(?:[Ee]([+-]?\\d+))?")
@@ -17,7 +18,10 @@ func _on_pressed() -> void:
 		else:
 			if State.havencheese >= -input:
 				State.havencheese += input
-				State.cheese -= input
+				if random.randf() < 0.1:
+					$"../Error".text = "The cheese got lost in transit (or they scammed you)"
+				else:
+					State.cheese -= input
 			else:
 				$"../Error".text = "Not enough in the haven"
 	else:
