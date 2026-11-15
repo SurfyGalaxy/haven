@@ -31,7 +31,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	timeout = true
 	height = speed * State.squishiness
-	flyspeed = height
+	speed = speed * State.squishiness
 
 func _input(event: InputEvent) -> void:
 	if not timeout and event.is_action_pressed("space"):
