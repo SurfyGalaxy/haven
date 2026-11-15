@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://crwqxmtc4hsks"]
 
 [ext_resource type="Script" uid="uid://dkge7grpefrkn" path="res://player.gd" id="2_e2o6t"]
+[ext_resource type="Theme" uid="uid://b0ngfsayg67d0" path="res://new_theme.tres" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://be4etgcnlqefk" path="res://spam_space.gd" id="3_feb5d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_80nbo"]
 load_path = "res://.godot/imported/image(4).png-8e751ad2a6f6d75852dc96295f88635d.ctex"
@@ -40,4 +42,24 @@ offset_right = 1164.0
 offset_bottom = 650.0
 color = Color(0.22352941, 0.7294118, 0.12156863, 1)
 
+[node name="spam space" type="Label" parent="Floor" unique_id=329161497]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -178.5
+offset_right = 150.0
+offset_bottom = -109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_feb5d")
+text = "Spam space!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_feb5d")
+
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="timeout" from="player/Timer" to="Floor/spam space" method="_on_timer_timeout"]
