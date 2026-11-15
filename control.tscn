@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cldyb66jycx48" path="res://tax_evasion.gd" id="6_fj5cn"]
 [ext_resource type="Script" uid="uid://dq0jfqey64qm0" path="res://tax_evasion_tooltip.gd" id="7_iy58a"]
 [ext_resource type="Script" uid="uid://g3saql2e5yww" path="res://kevin_is_here.gd" id="8_6a6wx"]
+[ext_resource type="Script" uid="uid://css0sxokdhmjy" path="res://tax_haven.gd" id="9_sky72"]
 
 [node name="Control" type="Control" unique_id=333993517]
 layout_mode = 3
@@ -166,6 +167,17 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "kevin chance"
 horizontal_alignment = 2
 script = ExtResource("8_6a6wx")
+
+[node name="tax haven" type="Button" parent="." unique_id=1347112346]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -173.0
+offset_bottom = 77.0
+grow_horizontal = 0
+text = "tax haven"
+script = ExtResource("9_sky72")
 
 [connection signal="pressed" from="tax evasion" to="tax evasion tooltip" method="_on_tax_evasion_pressed"]
 [connection signal="pressed" from="tax evasion" to="Kevin is here" method="_on_tax_evasion_pressed"]
