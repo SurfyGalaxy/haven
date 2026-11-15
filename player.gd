@@ -8,7 +8,7 @@ var distance_done = 0
 var flyspeed = 0
 var homeable = false
 
-const screensize = 648
+const screensize = 500
 const startheight = 200
 const spritesize = 1376
 const x_pos = 566
@@ -51,6 +51,7 @@ var flag = false
 func _process(_delta: float) -> void:
 	if timeout:
 		if ascending and gayming:
+			$"../Floor".position.y += speed
 			if position.y - speed <= 200 and speed > 0:
 				speed = float(speed) / burstspeed
 			if position.y < 200 and speed <= 1:
