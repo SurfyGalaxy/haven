@@ -14,11 +14,11 @@ const spritesize = 1376
 const x_pos = 566
 const start_sky_colour = Color("4a84ff")
 
-const skycolourchangefactor = 0.001
+const skycolourchangefactor = 0.001111
 const catchrate = 100
 
 @export
-var burstspeed = 1.1
+var burstspeed = 1.1    
 
 var squishiness = State.squishiness
 
