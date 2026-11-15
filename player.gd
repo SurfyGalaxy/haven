@@ -38,6 +38,7 @@ func _input(event: InputEvent) -> void:
 		speed += 1 
 	elif homeable and event.is_action_pressed("space"):
 		State.taxevasion = false    
+		State.havencheese = round(State.havencheese * 1.1)
 		get_tree().change_scene_to_file("res://control.tscn")
 
 var tick = 0
