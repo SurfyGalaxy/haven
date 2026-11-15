@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://cbhkx43a0jem0"]
 
+[ext_resource type="FontFile" uid="uid://c4rarhuvmpxrt" path="res://DejaVuSansMono.ttf" id="1_1ilpg"]
+[ext_resource type="Script" uid="uid://0gylabijvuvy" path="res://haven cheese amount.gd" id="2_7ec5j"]
+[ext_resource type="Script" uid="uid://nm6guce4bbwf" path="res://haven.gd" id="2_agmsm"]
+[ext_resource type="Theme" uid="uid://b0ngfsayg67d0" path="res://new_theme.tres" id="2_ufkbl"]
+[ext_resource type="Script" uid="uid://8inyks0qagvw" path="res://label.gd" id="3_agmsm"]
+[ext_resource type="Script" uid="uid://c6ea2ta56w8gc" path="res://return.gd" id="6_oabum"]
+
 [node name="Control" type="Control" unique_id=1590903239]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +14,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Cheese amount" type="Label" parent="." unique_id=2118576812]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 63.0
+offset_right = 1157.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1ilpg")
+theme_override_font_sizes/font_size = 38
+text = "In the Haven:
+12345678901234567890123456789012345678901234567890"
+horizontal_alignment = 1
+script = ExtResource("2_7ec5j")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1993680776]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 166.0
+offset_right = 1148.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("1_1ilpg")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "0"
+alignment = 1
+
+[node name="Submit" type="Button" parent="." unique_id=646282788]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 260.0
+offset_right = 795.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 64
+text = "Submit"
+script = ExtResource("2_agmsm")
+
+[node name="Error" type="Label" parent="." unique_id=2069538892]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 433.0
+offset_right = 1097.0
+offset_bottom = 561.0
+
+[node name="cheese" type="Label" parent="." unique_id=992251513]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 376.0
+offset_bottom = 70.0
+theme = ExtResource("2_ufkbl")
+text = "cheese number"
+script = ExtResource("3_agmsm")
+
+[node name="Return" type="Button" parent="." unique_id=260701115]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 422.0
+offset_right = 712.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 26
+text = "Return to main menu"
+script = ExtResource("6_oabum")
+
+[connection signal="pressed" from="Submit" to="Submit" method="_on_pressed"]
+[connection signal="pressed" from="Return" to="Return" method="_on_pressed"]

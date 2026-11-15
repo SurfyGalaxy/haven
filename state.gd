@@ -5,6 +5,4 @@ var earnings = 1
 var cheese = 0
 var taxevasion = false
 var Kevinchance = 0.05
-
-func _process(a):
-	print(taxevasion)
+var havencheese = 0
