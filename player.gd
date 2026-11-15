@@ -52,11 +52,11 @@ var flag = false
 func _process(_delta: float) -> void:
 	if timeout:
 		if ascending and gayming:
-			$"../Floor".position.y += speed
+			var deviation = 200 - position.y
+			$"../Floor".position.y += abs(deviation) / (catchrate / 2) 
 			if position.y - speed <= 200 and speed > 0:
 				speed = float(speed) / burstspeed
 			if position.y < 200 and speed <= 1:
-				var deviation = 200 - position.y
 				position.y += abs(deviation) / catchrate
 			position.y -= speed
 			doneheight + 1
@@ -87,7 +87,6 @@ var cheese_gain
 func end_animation():
 	if first:
 		if State.taxevasion:
-			print("A")
 			if caught:
 				cheese_gain = -(round(height * State.earnings)) * 1.5
 			else:
