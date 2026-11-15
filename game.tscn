@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dkge7grpefrkn" path="res://player.gd" id="2_e2o6t"]
 [ext_resource type="Theme" uid="uid://b0ngfsayg67d0" path="res://new_theme.tres" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://be4etgcnlqefk" path="res://spam_space.gd" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://djv8kr48rkts" path="res://players/cloud.png" id="4_fc0e3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_80nbo"]
 load_path = "res://.godot/imported/image(4).png-8e751ad2a6f6d75852dc96295f88635d.ctex"
@@ -60,6 +61,10 @@ text = "Spam space!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_feb5d")
+
+[node name="cloud" type="Sprite2D" parent="Floor" unique_id=1304924207]
+position = Vector2(985, -521)
+texture = ExtResource("4_fc0e3")
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="player/Timer" to="Floor/spam space" method="_on_timer_timeout"]
